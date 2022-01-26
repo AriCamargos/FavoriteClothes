@@ -50,14 +50,22 @@ class _ListPageState extends State<ListPage> {
         child: Expanded(
           child: Container(
             padding: const EdgeInsets.all(10.0),
-            child: GridView.count(
-              crossAxisCount: 2,
-              crossAxisSpacing: 10,
-              mainAxisSpacing: 10,
-              children: const [
-                _listClothes.map((e) => const Card()),
-              ],
+            height: 250,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(20),
             ),
+            child: Column(children: [
+              Expanded(
+                child: GridView.count(
+                  crossAxisCount: 2,
+                  crossAxisSpacing: 10,
+                  mainAxisSpacing: 10,
+                  children: [
+                    _listClothes.map((item) => Card()),
+                  ],
+                ),
+              ),
+            ]),
           ),
         ),
       ),
