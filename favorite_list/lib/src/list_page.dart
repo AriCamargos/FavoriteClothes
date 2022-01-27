@@ -60,8 +60,14 @@ class _ListPageState extends State<ListPage> {
                   crossAxisCount: 2,
                   crossAxisSpacing: 10,
                   mainAxisSpacing: 10,
-                  children: const [
-                    /* _listClothes.map((item) => Card()), */
+                  children: [
+                    _listClothes.map(
+                      (item) => Card(
+                        color: Colors.transparent,
+                        elevation: 0,
+                        child: Container(),
+                      ),
+                    ),
                   ],
                 ),
               ),
