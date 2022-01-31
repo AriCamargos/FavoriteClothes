@@ -8,14 +8,18 @@ class ListPage extends StatefulWidget {
 }
 
 final List<String> _listClothes = [
-  'favorite_list/assets/images/pic1.jpg',
-  'favorite_list/assets/images/pic2.jpg',
-  'favorite_list/assets/images/pic3.jpg',
-  'favorite_list/assets/images/pic4.jpg',
-  'favorite_list/assets/images/pic5.jpg',
-  'favorite_list/assets/images/pic6.jpg',
-  'favorite_list/assets/images/pic7.jpg',
-  'favorite_list/assets/images/pic8.jpg',
+  'assets/images/clock1.jpg',
+  'assets/images/clock2.jpg',
+  'assets/images/clock3.jpg',
+  'assets/images/clock4.jpg',
+  'assets/images/clock5.jpg',
+  'assets/images/clock6.jpg',
+  'assets/images/clock7.jpg',
+  'assets/images/clock8.jpg',
+  'assets/images/clock9.jpg',
+  'assets/images/clock10.jpg',
+  'assets/images/clock11.jpg',
+  'assets/images/clock12.jpg',
 ];
 
 class _ListPageState extends State<ListPage> {
@@ -26,7 +30,7 @@ class _ListPageState extends State<ListPage> {
         backgroundColor: Colors.white,
         title: const Center(
           child: Text(
-            'New Arrivals',
+            'Store',
             style: TextStyle(
               color: Colors.black,
               fontWeight: FontWeight.bold,
@@ -46,33 +50,30 @@ class _ListPageState extends State<ListPage> {
           ),
         ],
       ),
-      body: SafeArea(
-        child: Expanded(
-          child: Container(
-            padding: const EdgeInsets.all(10.0),
-            height: 250,
-            decoration: BoxDecoration(
-              borderRadius: BorderRadius.circular(20),
-            ),
-            child: Column(children: [
-              Expanded(
-                child: GridView.count(
-                  crossAxisCount: 2,
-                  crossAxisSpacing: 10,
-                  mainAxisSpacing: 10,
-                  children: [
-                    _listClothes.map(
-                      (item) => Card(
-                        color: Colors.transparent,
-                        elevation: 0,
-                        child: Container(),
-                      ),
-                    ),
-                  ],
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: GridView.builder(
+          gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+            maxCrossAxisExtent: 200,
+            childAspectRatio: 3 / 2,
+            crossAxisSpacing: 7,
+            mainAxisSpacing: 7,
+          ),
+          itemCount: _listClothes.length,
+          itemBuilder: (BuildContext context, index) {
+            return Card(
+              shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(20)),
+              elevation: 10,
+              child: ClipRRect(
+                borderRadius: BorderRadius.circular(20),
+                child: Image.asset(
+                  _listClothes[index],
+                  fit: BoxFit.cover,
                 ),
               ),
-            ]),
-          ),
+            );
+          },
         ),
       ),
     );
