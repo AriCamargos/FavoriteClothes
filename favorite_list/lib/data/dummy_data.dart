@@ -1,36 +1,5 @@
-import 'package:favorit_list/models/category.dart';
-import 'package:flutter/material.dart';
 
 import '../models/clothes.dart';
-
-// ignore: constant_identifier_names
-const DUMMY_CATEGORIES = [
-  Category(
-    id: 'c1',
-    title: 'Saia',
-    color: Colors.purple,
-  ),
-  Category(
-    id: 'c2',
-    title: 'Top',
-    color: Colors.amber,
-  ),
-  Category(
-    id: 'c3',
-    title: 'Calça',
-    color: Colors.cyan,
-  ),
-  Category(
-    id: 'c4',
-    title: 'Vestido',
-    color: Colors.lightBlue,
-  ),
-  Category(
-    id: 'c5',
-    title: 'Macação',
-    color: Colors.deepOrange,
-  ),
-];
 
 // ignore: constant_identifier_names
 const DUMMY_CLOTHES = [

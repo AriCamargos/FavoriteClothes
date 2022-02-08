@@ -1,5 +1,6 @@
+import 'package:favorit_list/models/clothes.dart';
+import 'package:favorit_list/screens/list_item.dart';
 import 'package:flutter/material.dart';
-import '../models/category.dart';
 import '../data/dummy_data.dart';
 
 class ListPage extends StatelessWidget {
@@ -7,10 +8,7 @@ class ListPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final category = ModalRoute.of(context)!.settings.arguments as Category;
-    final categoryClothes = DUMMY_CATEGORIES.where((clothes) {
-      return clothes.categories.contains(category.id);
-    }).toList();
+    const List<Clothes> clothesProducts = DUMMY_CLOTHES;
 
     return Scaffold(
       appBar: AppBar(
@@ -25,39 +23,19 @@ class ListPage extends StatelessWidget {
           ),
         ],
         backgroundColor: Colors.white,
-        title: Text(category.id),
+        title: const Text('Store'),
       ),
-      body: SizedBox(
-        height: 10,
-        child: Container(
-          margin: const EdgeInsets.symmetric(vertical: 20.0),
-          height: 100.0,
-          child: Column(
-            children: [
-              Padding(
-                padding: const EdgeInsets.all(8.0),
-                child: GridView.builder(
-                  gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
-                    maxCrossAxisExtent: 200,
-                    childAspectRatio: 3 / 2,
-                    crossAxisSpacing: 7,
-                    mainAxisSpacing: 7,
-                  ),
-                  itemCount: categoryClothes.length,
-                  itemBuilder: (BuildContext context, index) {
-                    return Card(
-                      shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(20)),
-                      elevation: 10,
-                      child: ClipRRect(
-                        borderRadius: BorderRadius.circular(20),
-                      ),
-                    );
-                  },
-                ),
-              )
-            ],
-          ),
+      body: GridView.builder(
+        itemCount: clothesProducts.length,
+        itemBuilder: (BuildContext context, index) {
+          return ListItem(clothes: clothesProducts[index]);
+        },
+        padding: const EdgeInsets.all(10),
+        gridDelegate: const SliverGridDelegateWithMaxCrossAxisExtent(
+          maxCrossAxisExtent: 200,
+          childAspectRatio: 3 / 2,
+          crossAxisSpacing: 7,
+          mainAxisSpacing: 7,
         ),
       ),
     );
