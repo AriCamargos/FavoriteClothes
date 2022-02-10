@@ -1,5 +1,4 @@
 import 'package:favorit_list/models/clothes.dart';
-import 'package:favorit_list/screens/list_item.dart';
 import 'package:flutter/material.dart';
 import '../data/dummy_data.dart';
 

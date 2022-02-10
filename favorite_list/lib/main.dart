@@ -1,3 +1,6 @@
+import 'package:favorit_list/screens/favorite_page.dart';
+import 'package:favorit_list/screens/list_page.dart';
+import 'package:favorit_list/utils/routes.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -17,6 +20,10 @@ class HomeWidget extends StatelessWidget {
           secondary: Color(0XFFD5D2EA),
         ),
       ),
+      routes: {
+        Routes.Home: (context) => const ListPage(),
+        Routes.Favorite_Page: (context) => const FavoritePage(),
+      },
     );
   }
 }
